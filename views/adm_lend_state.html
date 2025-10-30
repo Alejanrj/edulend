@@ -102,7 +102,7 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // Buscar todos los botones con la clase "eliminar"
+            
             const botonesEliminar = document.querySelectorAll(".eliminar");
 
             botonesEliminar.forEach(boton => {
@@ -143,7 +143,6 @@
                             const nuevoCorreo = document.getElementById('swal-correo').value;
                             const nuevoTelefono = document.getElementById('swal-telefono').value;
 
-                            // Validación básica
                             if (!nuevoNombre || !nuevoApellido || !nuevoCorreo || !nuevoTelefono) {
                                 Swal.showValidationMessage('Todos los campos son obligatorios');
                                 return false;
@@ -183,6 +182,7 @@
             }
         });
     </script>
+    <script src="/public/JS/reportes.js"></script>
 </body>
 
 </html>

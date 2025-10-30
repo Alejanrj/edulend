@@ -1,11 +1,9 @@
-// Referencias a los elementos del formulario y tabla
+
 const form = document.querySelector('.form-horizontal');
 const tabla = document.querySelector('#tabla-inventario tbody');
 
-// Cargar inventario desde localStorage al iniciar
 document.addEventListener('DOMContentLoaded', mostrarInventario);
 
-// Escuchar el envío del formulario
 form.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -30,24 +28,21 @@ form.addEventListener('submit', (e) => {
     mostrarInventario();
 });
 
-// Función para calcular una fecha límite (por ejemplo, 7 días después)
 function calcularFechaEntrega() {
     const fecha = new Date();
     fecha.setDate(fecha.getDate() + 7);
     return fecha.toLocaleDateString();
 }
 
-// Guardar en localStorage
 function guardarEnLocalStorage(item) {
     const inventario = JSON.parse(localStorage.getItem('inventario')) || [];
     inventario.push(item);
     localStorage.setItem('inventario', JSON.stringify(inventario));
 }
 
-// Mostrar los elementos guardados
 function mostrarInventario() {
     const inventario = JSON.parse(localStorage.getItem('inventario')) || [];
-    tabla.innerHTML = ''; // Limpiar tabla antes de mostrar
+    tabla.innerHTML = '';
 
     inventario.forEach((item, index) => {
         const fila = document.createElement('tr');
@@ -65,7 +60,6 @@ function mostrarInventario() {
     });
 }
 
-// Eliminar un artículo
 function eliminarItem(index) {
     const inventario = JSON.parse(localStorage.getItem('inventario')) || [];
     inventario.splice(index, 1);
@@ -73,7 +67,6 @@ function eliminarItem(index) {
     mostrarInventario();
 }
 
-// (Opcional) Editar un artículo
 function editarItem(index) {
     const inventario = JSON.parse(localStorage.getItem('inventario')) || [];
     const item = inventario[index];
