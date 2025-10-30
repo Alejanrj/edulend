@@ -1,4 +1,4 @@
-// Datos
+
 const estadoEquipos = {
     'En reparación': 1,
     'Disponibles': 15,
@@ -6,7 +6,6 @@ const estadoEquipos = {
     'En mora': 2
 };
 
-// Convertir a formato Plotly
 const datos = Object.entries(estadoEquipos).map(([estado, cantidad]) => ({
     x: [estado],
     y: [cantidad],
@@ -14,7 +13,6 @@ const datos = Object.entries(estadoEquipos).map(([estado, cantidad]) => ({
     type: 'bar'
 }));
 
-// Layout del gráfico
 const layout = {
     title: 'Estado de los Equipos',
     xaxis: { title: 'Estado' },
@@ -23,5 +21,4 @@ const layout = {
     legend: { title: { text: 'Estados' } }
 };
 
-// Renderizar en el div
 Plotly.newPlot('grafico', datos, layout);

@@ -1,4 +1,3 @@
-// reportes.js — Manejo de reportes con localStorage y SweetAlert2
 
 document.addEventListener("DOMContentLoaded", () => {
     const tabla = document.querySelector("#tabla-reportes");
